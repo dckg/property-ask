@@ -197,12 +197,16 @@ body {
 .hero-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(44px, 8vw, 104px);
+  font-size: clamp(36px, 8vw, 104px);
   line-height: 0.98;
   letter-spacing: -0.025em;
   margin: 0 0 28px;
   max-width: 16ch;
   font-variation-settings: "SOFT" 50;
+}
+.hi-singapore { white-space: nowrap; }
+@media (max-width: 640px) {
+  .hi-singapore { white-space: normal; }
 }
 .hero-title em {
   font-style: italic;
@@ -329,28 +333,28 @@ body {
 
 .hero-pin {
   position: absolute;
-  top: 50%;
+  top: clamp(80px, 12vh, 140px);
   right: var(--pad-edge);
-  transform: translateY(-50%);
-  display: grid;
-  justify-items: center;
-  gap: 14px;
-  padding: 22px 26px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px 6px 6px;
   background: white;
   color: var(--ink);
-  border-radius: var(--rad-lg);
-  min-width: 240px;
-  box-shadow: 0 24px 60px -20px rgba(26, 26, 26, 0.18);
+  border-radius: 999px;
+  box-shadow: 0 8px 22px -10px rgba(26, 26, 26, 0.22);
+  transform: none;
 }
 .hero-pin .pin-key {
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.22em;
+  font-size: 8px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.6);
+  color: rgba(26, 26, 26, 0.55);
+  display: none;
 }
 .pin-propnex {
-  width: 92px;
+  width: 56px;
   height: auto;
   display: block;
   background: white;
@@ -358,10 +362,11 @@ body {
 }
 .pin-foot {
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(26, 26, 26, 0.55);
+  white-space: nowrap;
 }
 
 /* ---------- PHOTO STRIP (between hero and about) ---------- */
