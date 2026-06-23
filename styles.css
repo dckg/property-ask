@@ -197,16 +197,17 @@ body {
 .hero-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(36px, 8vw, 104px);
-  line-height: 0.98;
-  letter-spacing: -0.025em;
+  font-size: clamp(32px, 5.8vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
   margin: 0 0 28px;
-  max-width: 16ch;
+  max-width: 22ch;
   font-variation-settings: "SOFT" 50;
 }
 .hi-singapore { white-space: nowrap; }
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   .hi-singapore { white-space: normal; }
+  .hero-title { max-width: none; }
 }
 .hero-title em {
   font-style: italic;
