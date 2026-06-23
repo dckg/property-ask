@@ -1190,7 +1190,7 @@ body {
   color: var(--tile-fg);
 }
 .contact-card:hover {
-  background: var(--tile-fg-hover, white);
+  background: var(--bone);
   color: var(--tile-bg);
   transform: var(--lift);
   box-shadow: var(--hover-shadow);
@@ -1253,11 +1253,11 @@ body {
   gap: 8px;
   padding: 12px 18px;
   border-radius: 999px;
-  background: white;
+  background: var(--bone);
   font-family: var(--sans);
   font-weight: 700;
   font-size: 14px;
-  border: 1.5px solid white;
+  border: 1.5px solid var(--bone);
   transition: background 200ms var(--ease), color 200ms var(--ease), border-color 200ms var(--ease), transform 160ms var(--ease);
 }
 .tile-btn .ico { width: 16px; height: 16px; }
