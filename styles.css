@@ -227,6 +227,16 @@ body {
   font-style: italic;
   color: var(--coral);
 }
+.hero-tag-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1.5px dashed currentColor;
+  padding-bottom: 1px;
+  transition: color 160ms var(--ease), border-color 160ms var(--ease);
+}
+.hero-tag-link em { transition: color 160ms var(--ease); }
+.hero-tag-link:hover em { color: var(--ink); }
+.hero-tag-link:hover { border-bottom-color: var(--ink); }
 
 .hero-actions {
   display: flex;
@@ -408,22 +418,22 @@ body {
 .about-affil {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  margin: 18px 0 0;
-  padding: 8px 14px 8px 12px;
-  background: rgba(250, 246, 236, 0.08);
-  border-radius: 999px;
+  gap: 14px;
+  margin: 22px 0 0;
+  padding: 10px 16px 10px 14px;
+  background: white;
+  border-radius: var(--rad-md);
 }
 .about-affil .affil-key {
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(250, 246, 236, 0.55);
+  color: rgba(26, 26, 26, 0.55);
 }
 .about-affil .propnex-mark {
-  width: 100px;
-  height: 22px;
+  width: 92px;
+  height: auto;
   display: block;
 }
 .about-grid {
@@ -654,9 +664,15 @@ body {
   display: flex;
   flex-direction: column;
   box-shadow: 0 18px 40px -20px rgba(26, 26, 26, 0.28);
-  opacity: 1;
+  /* Belt-and-braces: hide opposite face by opacity, switched at flip midpoint */
+  transition: opacity 0s 360ms;
 }
-.ls-back { background: var(--bone) !important; }
+.ls-front { opacity: 1; }
+.ls-back  { opacity: 0; background: var(--bone) !important; }
+.ls-card.is-flipped .ls-front,
+.ls-card:hover .ls-front       { opacity: 0; }
+.ls-card.is-flipped .ls-back,
+.ls-card:hover .ls-back        { opacity: 1; }
 
 /* ---- FRONT ---- */
 .ls-front {
@@ -953,36 +969,99 @@ body {
 }
 .ls-empty a { color: var(--coral); text-decoration: underline; }
 
-.ls-foot-link {
+.ls-updated-line {
   max-width: var(--maxw);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.ls-foot-link > a {
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 22px;
-  border-radius: 999px;
-  background: var(--pg-purple);
-  color: white;
-  transition: background 160ms var(--ease), transform 160ms var(--ease);
-}
-.ls-foot-link > a:hover { background: var(--ink); transform: translateY(-1px); }
-.ls-updated {
+  margin: 28px auto 0;
+  text-align: right;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.14em;
   color: var(--ink-2);
-  opacity: 0.6;
+  opacity: 0.55;
 }
+
+/* ---- CTA CARD (third tile, links to PropertyGuru profile) ---- */
+.ls-cta-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--rad-lg);
+  min-height: 480px;
+  text-decoration: none;
+  color: white;
+  background: var(--pg-purple);
+  box-shadow: 0 18px 40px -20px rgba(26, 26, 26, 0.28);
+  transition: transform 240ms var(--ease), box-shadow 240ms var(--ease);
+}
+.ls-cta-card:hover { transform: var(--lift); box-shadow: var(--hover-shadow); }
+.ls-cta-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55) saturate(110%);
+  transition: filter 320ms var(--ease), transform 600ms var(--ease);
+}
+.ls-cta-card:hover .ls-cta-img { filter: brightness(0.65); transform: scale(1.04); }
+.ls-cta-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.10) 35%, rgba(0,0,0,0.85) 100%);
+}
+.ls-cta-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  min-height: inherit;
+  padding: 32px 30px 28px;
+  gap: 6px;
+}
+.ls-cta-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 6px;
+}
+.ls-cta-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(26px, 2.6vw, 34px);
+  line-height: 1.1;
+  margin: 0 0 8px;
+  font-variation-settings: "SOFT" 40;
+  color: white;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+}
+.ls-cta-sub {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 22px;
+  max-width: 32ch;
+}
+.ls-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--pg-purple);
+  color: white;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 14px;
+  transition: background 160ms var(--ease), color 160ms var(--ease);
+}
+.ls-cta-card:hover .ls-cta-pill { background: white; color: var(--pg-purple); }
 
 @media (max-width: 640px) {
   .ls-specs { grid-template-columns: repeat(2, 1fr); }
@@ -1022,13 +1101,15 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  transition: transform 400ms var(--ease);
+  transition: transform 400ms var(--ease), filter 400ms var(--ease);
+  filter: brightness(0.65) saturate(110%);
 }
+.zone:hover .zone-img { filter: brightness(0.75) saturate(110%); }
 .zone::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(26, 26, 26, 0.0) 35%, rgba(26, 26, 26, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.20) 30%, rgba(0, 0, 0, 0.92) 100%);
   z-index: 1;
 }
 .zone-body {
@@ -1078,23 +1159,17 @@ body {
 }
 .contact-card {
   display: grid;
-  gap: 8px;
+  grid-template-rows: auto auto auto 1fr;
+  gap: 6px;
   padding: 28px 28px 24px;
   border-radius: var(--rad-lg);
   background: var(--bone);
   color: var(--ink);
   transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
   align-content: start;
+  min-height: 240px;
 }
 .contact-card:hover { transform: var(--lift); box-shadow: var(--hover-shadow); }
-.contact-card.card-primary {
-  background: var(--ink);
-  color: var(--bone);
-  grid-column: span 2;
-}
-@media (max-width: 720px) {
-  .contact-card.card-primary { grid-column: span 1; }
-}
 .card-key {
   font-family: var(--mono);
   font-size: 11px;
@@ -1102,20 +1177,43 @@ body {
   text-transform: uppercase;
   opacity: 0.7;
 }
-.card-val {
+.card-val-name {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(22px, 2.2vw, 30px);
+  font-size: clamp(22px, 2.2vw, 28px);
   font-variation-settings: "SOFT" 30;
-  line-height: 1.1;
+  line-height: 1.15;
 }
-.card-cta {
-  margin-top: 14px;
+
+/* Identical button treatment across all three tiles; brand colour swaps */
+.tile-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 999px;
   font-family: var(--sans);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
-  color: var(--coral);
+  border: 1.5px solid;
+  transition: background 160ms var(--ease), color 160ms var(--ease), border-color 160ms var(--ease), transform 160ms var(--ease);
 }
+.tile-btn .ico { width: 16px; height: 16px; }
+.tile-btn:hover { transform: translateY(-1px); }
+
+/* Brand colour mapping — solid by default, inverted on hover */
+.tile-btn-wa   { background: var(--wa-green); color: white; border-color: var(--wa-green); }
+.tile-btn-wa:hover { background: white; color: var(--wa-green); border-color: var(--wa-green); }
+
+.tile-btn-call { background: var(--ink); color: white; border-color: var(--ink); }
+.tile-btn-call:hover { background: white; color: var(--ink); border-color: var(--ink); }
+
+.tile-btn-li   { background: var(--li-blue); color: white; border-color: var(--li-blue); }
+.tile-btn-li:hover { background: white; color: var(--li-blue); border-color: var(--li-blue); }
+
+.tile-btn-ig   { background: var(--ig-pink); color: white; border-color: var(--ig-pink); }
+.tile-btn-ig:hover { background: white; color: var(--ig-pink); border-color: var(--ig-pink); }
 
 .card-actions {
   display: flex;

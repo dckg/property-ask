@@ -141,7 +141,24 @@ async function loadListings() {
       return;
     }
 
-    list.innerHTML = data.items.map(cardHTML).join('');
+    const ctaHTML = `
+      <a class="ls-card ls-cta-card" href="${esc(data.agent_url)}" target="_blank" rel="noopener" aria-label="View Chee How's full PropertyGuru profile">
+        <img class="ls-cta-img"
+             src="photos/profile-cta.png"
+             onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Detached_houses_along_Jervois_Road%2C_Singapore_-_20060226.jpg/960px-Detached_houses_along_Jervois_Road%2C_Singapore_-_20060226.jpg';"
+             alt="" loading="lazy" />
+        <div class="ls-cta-content">
+          <span class="ls-cta-eyebrow">More from Chee How</span>
+          <h3 class="ls-cta-title">See the full set of listings</h3>
+          <p class="ls-cta-sub">Photos, floor plans and full specs on PropertyGuru.</p>
+          <span class="ls-cta-pill">
+            View full PropertyGuru profile
+            <span aria-hidden="true">→</span>
+          </span>
+        </div>
+      </a>
+    `;
+    list.innerHTML = data.items.map(cardHTML).join('') + ctaHTML;
     wireFlip(list);
   } catch (e) {
     console.warn('[listings] load failed', e);

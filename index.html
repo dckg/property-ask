@@ -60,17 +60,9 @@
     </h1>
 
     <p class="hero-tag">
-      Chee How <em>shows&nbsp;you&nbsp;how</em> &mdash;
-      and <em>what&nbsp;comes&nbsp;next.</em>
+      Chee How <a class="hero-tag-link" href="#about"><em>shows&nbsp;you&nbsp;how</em></a> &mdash;
+      and <a class="hero-tag-link" href="#about"><em>what&nbsp;comes&nbsp;next.</em></a>
     </p>
-
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="https://wa.me/6580166178" target="_blank" rel="noopener">
-        <svg class="ico ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>
-        Talk to Chee How on WhatsApp
-      </a>
-      <a class="btn btn-ghost" href="#about">What I do</a>
-    </div>
 
     <ul class="hero-services" aria-label="Services offered">
       <li>Property Agent</li>
@@ -89,7 +81,7 @@
   <aside class="hero-pin" aria-hidden="true">
     <div class="pin-row"><span class="pin-key">District</span><span class="pin-val">05</span></div>
     <div class="pin-row"><span class="pin-key">Agency</span><span class="pin-val">PropNex</span></div>
-    <div class="pin-row"><span class="pin-key">Direct</span><span class="pin-val">+65 8016 6178</span></div>
+    <div class="pin-row"><span class="pin-key">Licence</span><span class="pin-val">L3008022J</span></div>
   </aside>
 </section>
 
@@ -111,10 +103,16 @@
     <h2 class="section-title">Hi, I'm Chee How.</h2>
     <p class="about-affil" aria-label="Affiliated with PropNex Realty">
       <span class="affil-key">Affiliated with</span>
-      <svg class="propnex-mark" viewBox="0 0 130 28" aria-label="PropNex">
-        <text x="0" y="22" font-family="Inter, system-ui, sans-serif"
-              font-weight="900" font-size="26" letter-spacing="-0.6"
-              fill="var(--pn-orange)">PropNex</text>
+      <svg class="propnex-mark" viewBox="0 0 220 140" aria-label="PropNex" role="img">
+        <!-- Top cyan triangle (apex at top) -->
+        <polygon points="10,40 210,40 110,5" fill="#00B9E8"/>
+        <!-- Bottom cyan triangle (apex at bottom) -->
+        <polygon points="10,100 210,100 110,135" fill="#00B9E8"/>
+        <!-- PropNex wordmark in heavy black -->
+        <text x="110" y="84" text-anchor="middle"
+              font-family="Inter, system-ui, sans-serif"
+              font-weight="900" font-size="42" letter-spacing="-1.5"
+              fill="#0A0A0A">PropNex</text>
       </svg>
     </p>
   </div>
@@ -155,8 +153,8 @@
         <p>Every recommendation is grounded in data, timing, and your financial priorities — never just the next deal.</p>
       </li>
       <li class="principle p-sea">
-        <h3>Asset progression &amp; financial planning.</h3>
-        <p>Map the path from HDB to private, restructure a portfolio, plan the financing for the next decade. Strategy, not just a single sale.</p>
+        <h3>Long-term strategy.</h3>
+        <p>Asset progression and the financial planning behind it — mapping the path from HDB to private, restructuring a portfolio, financing the next decade. Strategy, not just the next sale.</p>
       </li>
     </ul>
   </div>
@@ -201,13 +199,7 @@
     <p class="ls-empty">Loading current listings…</p>
   </div>
 
-  <p class="ls-foot-link">
-    <a href="https://www.propertyguru.com.sg/agent/chua-chee-how-901578302" target="_blank" rel="noopener">
-      View full PropertyGuru profile
-      <span aria-hidden="true">→</span>
-    </a>
-    <span class="ls-updated">Updated <span data-listings="updated">—</span></span>
-  </p>
+  <p class="ls-updated-line">Updated <span data-listings="updated">—</span></p>
 </section>
 
 <!-- ===================== AROUND WEST COAST ===================== -->
@@ -287,38 +279,48 @@
   </div>
 
   <div class="contact-grid">
-    <div class="contact-card card-primary card-wa">
+    <div class="contact-card card-wa">
       <span class="tile-logo">
         <svg class="ico ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>
       </span>
-      <span class="card-key">WhatsApp or call</span>
-      <span class="card-val">+65 8016 6178</span>
+      <span class="card-key">Direct</span>
+      <span class="card-val-name">WhatsApp or call</span>
       <div class="card-actions">
-        <a class="card-btn" href="https://wa.me/6580166178" target="_blank" rel="noopener">
-          <svg class="ico ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>
+        <a class="tile-btn tile-btn-wa" href="https://wa.me/6580166178" target="_blank" rel="noopener">
+          <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
           WhatsApp
         </a>
-        <a class="card-btn card-btn-ghost" href="tel:+6580166178">
-          Call <span aria-hidden="true">→</span>
+        <a class="tile-btn tile-btn-call" href="tel:+6580166178">
+          Call
         </a>
       </div>
     </div>
-    <a class="contact-card card-li" href="https://www.linkedin.com/in/chee-how-chua-5ba74067/" target="_blank" rel="noopener">
+    <div class="contact-card card-li">
       <span class="tile-logo">
         <svg class="ico ico-li" aria-hidden="true"><use href="#i-li"/></svg>
       </span>
       <span class="card-key">LinkedIn</span>
-      <span class="card-val">Chee How Chua</span>
-      <span class="card-cta">Open profile <span aria-hidden="true">→</span></span>
-    </a>
-    <a class="contact-card card-ig" href="https://www.instagram.com/chchua166178/" target="_blank" rel="noopener">
+      <span class="card-val-name">Chee How Chua</span>
+      <div class="card-actions">
+        <a class="tile-btn tile-btn-li" href="https://www.linkedin.com/in/chee-how-chua-5ba74067/" target="_blank" rel="noopener">
+          <svg class="ico" aria-hidden="true"><use href="#i-li"/></svg>
+          Open profile
+        </a>
+      </div>
+    </div>
+    <div class="contact-card card-ig">
       <span class="tile-logo">
         <svg class="ico ico-ig" aria-hidden="true"><use href="#i-ig"/></svg>
       </span>
       <span class="card-key">Instagram</span>
-      <span class="card-val">@chchua166178</span>
-      <span class="card-cta">Follow <span aria-hidden="true">→</span></span>
-    </a>
+      <span class="card-val-name">@chchua166178</span>
+      <div class="card-actions">
+        <a class="tile-btn tile-btn-ig" href="https://www.instagram.com/chchua166178/" target="_blank" rel="noopener">
+          <svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>
+          Follow
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
