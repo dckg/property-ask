@@ -427,6 +427,7 @@ body {
 .principle.p-leaf  { border-left-color: var(--leaf); }
 .principle.p-sun   { border-left-color: var(--sun); }
 .principle.p-coral { border-left-color: var(--coral); }
+.principle.p-sea   { border-left-color: var(--sea); }
 
 /* ---------- MARKET (leaf tint) ---------- */
 .market {
