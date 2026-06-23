@@ -94,7 +94,8 @@ function cardHTML(it) {
           ${it.near ? `<p class="ls-near">${esc(it.near)}</p>` : ''}
           <footer class="ls-foot">
             <a class="ls-cta" href="${esc(it.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">
-              View on PropertyGuru <span aria-hidden="true">→</span>
+              <span class="ls-cta-line">View listing on</span>
+              <span class="ls-cta-line">PropertyGuru <span aria-hidden="true">→</span></span>
             </a>
             <span class="ls-listed">Listed ${esc(fmtListed(it.listed))} · ID ${esc(it.id)}</span>
           </footer>

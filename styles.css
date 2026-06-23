@@ -993,17 +993,21 @@ body {
 .ls-cta {
   font-family: var(--sans);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 12.5px;
+  line-height: 1.15;
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 7px;
-  padding: 9px 16px;
-  border-radius: 999px;
+  text-align: center;
+  gap: 1px;
+  padding: 8px 16px;
+  border-radius: var(--rad-md);
   background: var(--pg-purple);
   color: white;
   transition: background 160ms var(--ease), transform 160ms var(--ease);
 }
 .ls-cta:hover { background: var(--ink); transform: translateY(-1px); }
+.ls-cta-line { display: block; white-space: nowrap; }
 .ls-listed {
   font-family: var(--sans);
   font-size: 11px;
