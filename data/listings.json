@@ -1,0 +1,53 @@
+{
+  "updated": "2026-06-23T20:45:00.000Z",
+  "agent_url": "https://www.propertyguru.com.sg/agent/chua-chee-how-901578302",
+  "items": [
+    {
+      "id": "500125106",
+      "title": "Soleil @ Sinaran",
+      "address": "2 Sinaran Drive",
+      "type": "Condominium",
+      "intent": "sale",
+      "price": "S$ 2.14M",
+      "price_full": "S$ 2,138,000",
+      "price_meta": "Negotiable",
+      "psf": "S$ 2,232 psf",
+      "district": "D11",
+      "area": "Novena",
+      "beds": 2,
+      "baths": 2,
+      "sqft": 958,
+      "sqft_label": "sqft",
+      "tenure": "99-year lease",
+      "top": "Sep 2012",
+      "near": "230 m · 3 min walk to Novena MRT (NS20)",
+      "listed": "2026-05-29",
+      "tagline": "Rare 958 sqft 2BR · vacant possession · walk to Novena MRT.",
+      "url": "https://www.propertyguru.com.sg/listing/500125106"
+    },
+    {
+      "id": "500156825",
+      "title": "Sunset Way Estate",
+      "address": "Sunset Way · Clementi Park",
+      "type": "Semi-Detached House",
+      "intent": "rent",
+      "price": "S$ 17,000",
+      "price_full": "S$ 17,000",
+      "price_meta": "per month",
+      "psf": null,
+      "district": "D21",
+      "area": "Clementi Park · Upper Bukit Timah",
+      "beds": 6,
+      "baths": 6,
+      "sqft": 3620,
+      "sqft_label": "sqft land",
+      "floor_sqft": 5200,
+      "tenure": "2-year lease",
+      "top": null,
+      "near": "Near NUS · NUH · One-North · Science Park",
+      "listed": "2026-05-31",
+      "tagline": "5+1 BR · 2 storeys with attic · east facing · move-in ready.",
+      "url": "https://www.propertyguru.com.sg/listing/500156825"
+    }
+  ]
+}

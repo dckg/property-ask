@@ -22,6 +22,7 @@
   <nav class="nav-links" aria-label="Primary">
     <a href="#about">About</a>
     <a href="#market">Live Market</a>
+    <a href="#listings">Listings</a>
     <a href="#area">West Coast</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -148,6 +149,29 @@
   </p>
 </section>
 
+<!-- ===================== CURRENT LISTINGS ===================== -->
+<section id="listings" class="listings">
+  <div class="section-head">
+    <span class="eyebrow">Current listings</span>
+    <h2 class="section-title">On the market right now.</h2>
+    <p class="section-sub">
+      <span data-listings="count">—</span> homes I'm marketing today.
+      Each card links straight to the live PropertyGuru listing for photos, floor plan, and full details.
+    </p>
+  </div>
+
+  <div class="ls-grid" data-listings="items">
+    <p class="ls-empty">Loading current listings…</p>
+  </div>
+
+  <p class="ls-foot-link">
+    <a href="https://www.propertyguru.com.sg/agent/chua-chee-how-901578302" target="_blank" rel="noopener">
+      View Chee How's full PropertyGuru profile <span aria-hidden="true">→</span>
+    </a>
+    <span class="ls-updated">Updated <span data-listings="updated">—</span></span>
+  </p>
+</section>
+
 <!-- ===================== AROUND WEST COAST ===================== -->
 <section id="area" class="area">
   <div class="section-head">
@@ -263,5 +287,6 @@
 
 <script src="./greeting.js" type="module"></script>
 <script src="./news.js" type="module"></script>
+<script src="./listings.js" type="module"></script>
 </body>
 </html>
