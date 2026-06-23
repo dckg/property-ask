@@ -494,6 +494,15 @@ body {
   margin: 0 0 6px;
 }
 .principle p { margin: 0; color: rgba(250, 246, 236, 0.78); font-size: 15px; }
+.principle p + p { margin-top: 10px; color: rgba(250, 246, 236, 0.92); }
+.principle .p-foil {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14.5px;
+  font-variation-settings: "SOFT" 80;
+  color: rgba(250, 246, 236, 0.55);
+  margin-bottom: 6px;
+}
 .principle.p-leaf  { border-left-color: var(--leaf); }
 .principle.p-sun   { border-left-color: var(--sun); }
 .principle.p-coral { border-left-color: var(--coral); }
