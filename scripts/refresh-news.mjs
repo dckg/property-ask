@@ -77,13 +77,9 @@ async function fetchQuery(q) {
 
 const all = (await Promise.all(QUERIES.map(fetchQuery))).flat();
 
-// Brand-blocklist: drop any item that mentions a brand we don't surface.
-const BLOCKLIST = /\bpropnex\b/i;
-
 const seen = new Set();
 const unique = [];
 for (const it of all) {
-  if (BLOCKLIST.test(it.title) || BLOCKLIST.test(it.source)) continue;
   const key = it.title.toLowerCase().replace(/\s+/g, ' ').slice(0, 80);
   if (seen.has(key)) continue;
   seen.add(key);
