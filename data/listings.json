@@ -23,7 +23,9 @@
       "near": "230 m · 3 min walk to Novena MRT (NS20)",
       "listed": "2026-05-29",
       "tagline": "Rare 958 sqft 2BR · vacant possession · walk to Novena MRT.",
-      "url": "https://www.propertyguru.com.sg/listing/500125106"
+      "url": "https://www.propertyguru.com.sg/listing/500125106",
+      "photo": "photos/listing-500125106.jpg",
+      "photo_fallback": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Two_condominiums_in_West_Coast%2C_Singapore.jpg/960px-Two_condominiums_in_West_Coast%2C_Singapore.jpg"
     },
     {
       "id": "500156825",
@@ -47,7 +49,9 @@
       "near": "Near NUS · NUH · One-North · Science Park",
       "listed": "2026-05-31",
       "tagline": "5+1 BR · 2 storeys with attic · east facing · move-in ready.",
-      "url": "https://www.propertyguru.com.sg/listing/500156825"
+      "url": "https://www.propertyguru.com.sg/listing/500156825",
+      "photo": "photos/listing-500156825.jpg",
+      "photo_fallback": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Detached_houses_along_Jervois_Road%2C_Singapore_-_20060226.jpg/960px-Detached_houses_along_Jervois_Road%2C_Singapore_-_20060226.jpg"
     }
   ]
 }

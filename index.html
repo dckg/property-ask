@@ -35,11 +35,6 @@
 <!-- ===================== HERO ===================== -->
 <section id="top" class="hero">
   <div class="hero-grid">
-    <div class="hero-greeting" aria-live="polite">
-      <span class="greet-prompt">say,</span>
-      <span class="greet-word" id="greeting">Hello</span>
-    </div>
-
     <h1 class="hero-title">
       Looking to <em>buy</em>, <em>sell</em>,<br />
       <em>rent</em>, or <em>value</em> your<br />
@@ -59,12 +54,21 @@
       <a class="btn btn-ghost" href="#about">What I do</a>
     </div>
 
+    <p class="hero-services">
+      <span class="hs-key">A complete service</span>
+      <span class="hs-sep">·</span>
+      <span class="hs-item">Property</span>
+      <span class="hs-sep">+</span>
+      <span class="hs-item hs-em">Asset progression</span>
+      <span class="hs-sep">+</span>
+      <span class="hs-item hs-em">Financial planning</span>
+    </p>
+
     <ul class="hero-meta" aria-label="Languages spoken">
       <li>English</li>
       <li>中文</li>
       <li>Teochew</li>
       <li>Cantonese</li>
-      <li>Singlish</li>
     </ul>
   </div>
 
@@ -190,17 +194,18 @@
   </div>
 
   <div class="area-grid">
-    <article class="zone z-mrt">
+    <article class="zone z-park">
       <img class="zone-img"
-           src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/HDB_blocks_in_Dover.jpg/960px-HDB_blocks_in_Dover.jpg"
-           alt="HDB blocks in Dover, District 05, Singapore"
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Detached_houses_along_Jervois_Road%2C_Singapore_-_20060226.jpg/960px-Detached_houses_along_Jervois_Road%2C_Singapore_-_20060226.jpg"
+           alt="Detached Singapore landed houses (representative of D05 enclaves)"
            loading="lazy" />
       <div class="zone-body">
-        <span class="zone-tag">HDB</span>
-        <h3>HDB Resale</h3>
-        <p>Dover, Clementi, Holland — open-market resale with the
-        data, the COV, and the cash-over-valuation conversation done
-        upfront.</p>
+        <span class="zone-tag">Landed</span>
+        <h3>Landed homes</h3>
+        <p>Hong Leong Garden, Faber Crescent, Pasir Panjang Hill —
+        D05 semi-detached and detached enclaves where long sale
+        cycles meet narrow buyer pools, and pricing has to respect
+        both.</p>
       </div>
     </article>
     <article class="zone z-launch">
@@ -216,6 +221,19 @@
         the developer's discount, mapped before viewing.</p>
       </div>
     </article>
+    <article class="zone z-mrt">
+      <img class="zone-img"
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/HDB_blocks_in_Dover.jpg/960px-HDB_blocks_in_Dover.jpg"
+           alt="HDB blocks in Dover, District 05, Singapore"
+           loading="lazy" />
+      <div class="zone-body">
+        <span class="zone-tag">HDB</span>
+        <h3>HDB Resale</h3>
+        <p>Dover, Clementi, Holland — open-market resale with the
+        data, the COV, and the cash-over-valuation conversation done
+        upfront.</p>
+      </div>
+    </article>
     <article class="zone z-school">
       <img class="zone-img"
            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Pasir_Panjang_Village%2C_West_Coast%2C_Singapore_%283389848330%29.jpg/960px-Pasir_Panjang_Village%2C_West_Coast%2C_Singapore_%283389848330%29.jpg"
@@ -227,19 +245,6 @@
         <p>Older stretches of Pasir Panjang Road and West Coast
         Road — shophouse-typology mixed-use with URA conservation
         rules and a buyer pool that rewards patience.</p>
-      </div>
-    </article>
-    <article class="zone z-park">
-      <img class="zone-img"
-           src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Semi_detached_house_in_Singapore.jpg/960px-Semi_detached_house_in_Singapore.jpg"
-           alt="Modern semi-detached house, Singapore (representative)"
-           loading="lazy" />
-      <div class="zone-body">
-        <span class="zone-tag">Landed</span>
-        <h3>Landed homes</h3>
-        <p>Hong Leong Garden, Faber Crescent, Pasir Panjang Hill —
-        D05 landed enclaves where long sale cycles meet narrow buyer
-        pools, and pricing has to respect both.</p>
       </div>
     </article>
   </div>
@@ -298,7 +303,6 @@
   </div>
 </footer>
 
-<script src="./greeting.js" type="module"></script>
 <script src="./news.js" type="module"></script>
 <script src="./listings.js" type="module"></script>
 </body>

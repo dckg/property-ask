@@ -1,5 +1,7 @@
-// Render current listings from data/listings.json into the .listings section.
-// Data is curated — each card deep-links to the source listing on PropertyGuru.
+// Renders flip cards from data/listings.json.
+// Front: cover photo + title + price.
+// Back: full specs + tagline + CTA. Hover (desktop) or tap (touch)
+// flips the card. Keyboard space/enter also flips.
 
 const SOURCE = 'data/listings.json';
 
@@ -27,40 +29,92 @@ function cardHTML(it) {
   const psfLine = it.psf ? `<span class="ls-psf">${esc(it.psf)}</span>` : '';
   const metaLine = [it.tenure, it.top].filter(Boolean).map(esc).join(' · ');
 
+  const photoSrc  = esc(it.photo || it.photo_fallback || '');
+  const photoFall = esc(it.photo_fallback || '');
+
   return `
-    <article class="ls-card ls-${esc(it.intent)}">
-      <header class="ls-head">
-        <span class="ls-intent">${esc(intentLabel(it.intent))}</span>
-        <span class="ls-district">${esc(it.district)}</span>
-      </header>
-      <div class="ls-title-wrap">
-        <h3 class="ls-title">${esc(it.title)}</h3>
-        <p class="ls-address">${esc(it.address)}</p>
-      </div>
-      <ul class="ls-specs">
-        <li><span class="k">Bed</span><span class="v">${it.beds}</span></li>
-        <li><span class="k">Bath</span><span class="v">${it.baths}</span></li>
-        <li><span class="k">Size</span><span class="v">${sqftLine}</span></li>
-        <li><span class="k">Type</span><span class="v">${esc(it.type)}</span></li>
-      </ul>
-      <div class="ls-price-row">
-        <div class="ls-price-main">
-          <span class="ls-price">${esc(it.price)}</span>
-          ${it.price_meta ? `<span class="ls-price-meta">${esc(it.price_meta)}</span>` : ''}
+    <article class="ls-card ls-${esc(it.intent)}"
+             tabindex="0"
+             aria-label="${esc(it.title)} — tap or hover to see details">
+      <div class="ls-flip">
+        <!-- FRONT: cover photo + headline + price -->
+        <div class="ls-face ls-front">
+          <img class="ls-photo"
+               src="${photoSrc}"
+               ${photoFall ? `onerror="this.onerror=null;this.src='${photoFall}';"` : ''}
+               alt="${esc(it.title)}"
+               loading="lazy" />
+          <div class="ls-front-content">
+            <header class="ls-front-head">
+              <span class="ls-intent">${esc(intentLabel(it.intent))}</span>
+              <span class="ls-district">${esc(it.district)}</span>
+            </header>
+            <div class="ls-front-bottom">
+              <h3 class="ls-title">${esc(it.title)}</h3>
+              <p class="ls-address">${esc(it.address)}</p>
+              <p class="ls-price-row">
+                <span class="ls-price">${esc(it.price)}</span>
+                ${it.price_meta ? `<span class="ls-price-meta">${esc(it.price_meta)}</span>` : ''}
+              </p>
+            </div>
+            <p class="ls-flip-hint" aria-hidden="true">Hover / tap for details</p>
+          </div>
         </div>
-        ${psfLine}
+
+        <!-- BACK: specs and details -->
+        <div class="ls-face ls-back">
+          <header class="ls-back-head">
+            <span class="ls-intent">${esc(intentLabel(it.intent))}</span>
+            <span class="ls-district">${esc(it.district)}</span>
+          </header>
+          <h3 class="ls-back-title">${esc(it.title)}</h3>
+          <p class="ls-back-address">${esc(it.address)}</p>
+          <ul class="ls-specs">
+            <li><span class="k">Bed</span><span class="v">${it.beds}</span></li>
+            <li><span class="k">Bath</span><span class="v">${it.baths}</span></li>
+            <li><span class="k">Size</span><span class="v">${sqftLine}</span></li>
+            <li><span class="k">Type</span><span class="v">${esc(it.type)}</span></li>
+          </ul>
+          <p class="ls-back-price">
+            <span class="ls-price">${esc(it.price)}</span>
+            ${it.price_meta ? `<span class="ls-price-meta">${esc(it.price_meta)}</span>` : ''}
+            ${psfLine}
+          </p>
+          ${it.tagline ? `<p class="ls-tagline">${esc(it.tagline)}</p>` : ''}
+          ${metaLine ? `<p class="ls-meta">${metaLine}</p>` : ''}
+          ${it.near ? `<p class="ls-near">${esc(it.near)}</p>` : ''}
+          <footer class="ls-foot">
+            <a class="ls-cta" href="${esc(it.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation();">
+              View on PropertyGuru <span aria-hidden="true">→</span>
+            </a>
+            <span class="ls-listed">Listed ${esc(fmtListed(it.listed))} · ID ${esc(it.id)}</span>
+          </footer>
+        </div>
       </div>
-      ${it.tagline ? `<p class="ls-tagline">${esc(it.tagline)}</p>` : ''}
-      ${metaLine ? `<p class="ls-meta">${metaLine}</p>` : ''}
-      ${it.near ? `<p class="ls-near">${esc(it.near)}</p>` : ''}
-      <footer class="ls-foot">
-        <a class="ls-cta" href="${esc(it.url)}" target="_blank" rel="noopener">
-          View on PropertyGuru <span aria-hidden="true">→</span>
-        </a>
-        <span class="ls-listed">Listed ${esc(fmtListed(it.listed))} · ID ${esc(it.id)}</span>
-      </footer>
     </article>
   `;
+}
+
+function wireFlip(root) {
+  root.querySelectorAll('.ls-card').forEach(card => {
+    const flipTo = (state) => {
+      if (state === undefined) card.classList.toggle('is-flipped');
+      else card.classList.toggle('is-flipped', !!state);
+    };
+    // Click / tap toggles
+    card.addEventListener('click', e => {
+      // Don't flip if the user clicked a link inside the back face
+      if (e.target.closest('a')) return;
+      flipTo();
+    });
+    // Keyboard
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        flipTo();
+      }
+    });
+  });
 }
 
 async function loadListings() {
@@ -88,6 +142,7 @@ async function loadListings() {
     }
 
     list.innerHTML = data.items.map(cardHTML).join('');
+    wireFlip(list);
   } catch (e) {
     console.warn('[listings] load failed', e);
     list.innerHTML = '<p class="ls-empty">Listings unavailable. <a href="https://www.propertyguru.com.sg/agent/chua-chee-how-901578302" target="_blank" rel="noopener">View on PropertyGuru directly →</a></p>';
