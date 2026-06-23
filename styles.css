@@ -1411,16 +1411,20 @@ body {
   gap: 4px;
 }
 .foot-compliance p { margin: 0; }
-.foot-copy {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: rgba(250, 246, 236, 0.4);
-  text-align: right;
+.foot-propnex {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
   margin: 0;
-  line-height: 1.6;
 }
-.foot-credit { color: rgba(250, 246, 236, 0.28); }
+.foot-propnex-mark {
+  width: auto;
+  height: calc(13px * 1.6 * 2);
+  display: block;
+  background: white;
+  border-radius: 4px;
+}
+.foot-credit { color: rgba(250, 246, 236, 0.45); }
 
 /* ---------- REDUCED MOTION ---------- */
 @media (prefers-reduced-motion: reduce) {
