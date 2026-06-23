@@ -51,7 +51,7 @@
       <rect x="440" y="80" width="460" height="180"/>
       <text class="r-name" x="458" y="118">GALLERY</text>
       <text class="r-tag"  x="458" y="138">03 / A1</text>
-      <text class="r-use"  x="458" y="245">COVERAGE</text>
+      <text class="r-use"  x="458" y="245">MARKET · LIVE</text>
     </g>
 
     <g class="room" data-room="foyer" tabindex="0" role="button" aria-label="Open Foyer — Bio">
@@ -134,21 +134,28 @@
       <p>Whether you are upgrading, right-sizing, or investing long-term, every recommendation is grounded in data, timing, and your financial priorities.</p>
     </li>
   </ol>
+  <p class="annotation">
+    <span class="ann-key">SEGMENTS</span>
+    <span class="ann-sep">·</span>
+    HDB Resale<span class="ann-sep">·</span>Private Condominiums<span class="ann-sep">·</span>Landed Homes<span class="ann-sep">·</span>New Launches
+  </p>
 </section>
 
 <section class="panel" data-panel="gallery" hidden aria-hidden="true">
   <header class="panel-head">
     <span class="callout">03 / A1</span>
     <h2>GALLERY</h2>
-    <span class="dim">— COVERAGE</span>
+    <span class="dim">— MARKET</span>
   </header>
-  <ul class="segments">
-    <li><span class="src">01</span><h3>HDB Resale</h3></li>
-    <li><span class="src">02</span><h3>Private Condominiums</h3></li>
-    <li><span class="src">03</span><h3>Landed Homes</h3></li>
-    <li><span class="src">04</span><h3>New Launches</h3></li>
+  <p class="news-status">
+    <span class="live-dot" aria-hidden="true"></span>
+    <span class="live-label">LIVE</span>
+    <span class="live-meta">Last refreshed <span data-news="updated">moments ago</span></span>
+  </p>
+  <ul class="news" data-news="items">
+    <li class="news-empty">Loading the latest Singapore real estate reads…</li>
   </ul>
-  <p class="note">Residential property advisory across the Singapore market.</p>
+  <p class="note">Aggregated from public RSS feeds. Headlines link to original sources.</p>
 </section>
 
 <section class="panel" data-panel="lounge" hidden aria-hidden="true">
@@ -211,5 +218,6 @@
 </aside>
 
 <script src="./plan.js" type="module"></script>
+<script src="./news.js" type="module"></script>
 </body>
 </html>

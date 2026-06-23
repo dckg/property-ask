@@ -52,6 +52,7 @@ function zoomToRoom(name) {
 
   canvas.style.transform = transformFor(name);
   document.body.classList.add('is-zoomed');
+  document.body.dataset.activeRoom = name;
   backBtn.hidden = false;
 
   const panel = document.querySelector(`.panel[data-panel="${name}"]`);
@@ -75,6 +76,7 @@ function zoomHome() {
 
   canvas.style.transform = transformFor(null);
   document.body.classList.remove('is-zoomed');
+  delete document.body.dataset.activeRoom;
   backBtn.hidden = true;
   if (tbSheet) tbSheet.textContent = 'A1';
 }

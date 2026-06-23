@@ -1,0 +1,35 @@
+name: Refresh market news
+
+on:
+  schedule:
+    # Every 6 hours, on the hour
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch latest headlines
+        run: node scripts/refresh-news.mjs
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "news-bot"
+          git config user.email "news-bot@users.noreply.github.com"
+          git add data/news.json
+          if git diff --staged --quiet; then
+            echo "No new headlines."
+          else
+            git commit -m "data: refresh market news ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git push
+          fi

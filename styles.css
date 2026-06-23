@@ -1,10 +1,13 @@
 /* ---------- TOKENS ---------- */
 :root {
-  --ink:        #0E1116;
-  --vellum:     #F1ECDD;
-  --graphite:  #6B6F75;
-  --hairline:  #1F242C;
-  --blueprint: #1B4FE3;
+  --ink:        #1B1612;   /* warm coffee dark — the drafting paper at night */
+  --vellum:     #F2EAD7;   /* warm vellum — slightly creamier */
+  --graphite:   #847B6D;   /* warm graphite — sepia pencil */
+  --hairline:   #2C2520;   /* faint warm rule */
+
+  --blueprint:  #4677F0;   /* architectural blue — analytical, links, CTAs */
+  --garden:     #79C99F;   /* drafting green — live, current, fresh */
+  --terracotta: #E08363;   /* warm earth — personality, warmth, contact */
 
   --mono: "IBM Plex Mono", ui-monospace, monospace;
   --sans: "Hanken Grotesk", system-ui, sans-serif;
@@ -61,12 +64,19 @@ body {
   transition: fill 200ms var(--ease), stroke 200ms var(--ease);
 }
 .room { cursor: pointer; outline: none; }
-.room:hover rect,
-.room:focus-visible rect {
-  fill: rgba(27, 79, 227, 0.06);
-  stroke: var(--blueprint);
-}
 .room:focus-visible rect { stroke-width: 1.25; }
+
+/* Per-room hover colors — reveal the room's accent on interaction */
+.room[data-room="foyer"]:hover rect,
+.room[data-room="foyer"]:focus-visible rect   { stroke: var(--terracotta); fill: rgba(224, 131, 99, 0.06); }
+.room[data-room="study"]:hover rect,
+.room[data-room="study"]:focus-visible rect   { stroke: var(--blueprint);  fill: rgba(70, 119, 240, 0.06); }
+.room[data-room="gallery"]:hover rect,
+.room[data-room="gallery"]:focus-visible rect { stroke: var(--garden);     fill: rgba(121, 201, 159, 0.07); }
+.room[data-room="lounge"]:hover rect,
+.room[data-room="lounge"]:focus-visible rect  { stroke: var(--blueprint);  fill: rgba(70, 119, 240, 0.06); }
+.room[data-room="hearth"]:hover rect,
+.room[data-room="hearth"]:focus-visible rect  { stroke: var(--terracotta); fill: rgba(224, 131, 99, 0.06); }
 
 .r-name {
   font-family: var(--mono);
@@ -87,6 +97,11 @@ body {
   letter-spacing: 0.22em;
   fill: var(--graphite);
 }
+/* Per-room USE labels colored — a small splash of identity on the plan */
+.room[data-room="foyer"]   .r-use { fill: var(--terracotta); }
+.room[data-room="study"]   .r-use { fill: var(--blueprint); }
+.room[data-room="gallery"] .r-use { fill: var(--garden); }
+.room[data-room="hearth"]  .r-use { fill: var(--terracotta); }
 
 /* ---------- TITLE BLOCK ---------- */
 .title-block {
@@ -108,7 +123,12 @@ body {
 .tb-row { display: contents; }
 .tb-key { color: var(--graphite); }
 .tb-val { text-align: right; }
-.tb-val em { font-style: normal; color: var(--blueprint); }
+.tb-val em { font-style: normal; color: var(--accent, var(--blueprint)); transition: color 200ms var(--ease); }
+body[data-active-room="foyer"]   { --accent: var(--terracotta); }
+body[data-active-room="study"]   { --accent: var(--blueprint); }
+body[data-active-room="gallery"] { --accent: var(--garden); }
+body[data-active-room="lounge"]  { --accent: var(--blueprint); }
+body[data-active-room="hearth"]  { --accent: var(--terracotta); }
 
 /* ---------- BACK BUTTON ---------- */
 .back {
@@ -138,9 +158,9 @@ body {
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: safe center;
   align-items: flex-start;
-  padding: clamp(64px, 8vw, 120px) clamp(40px, 8vw, 160px);
+  padding: clamp(64px, 8vw, 120px) clamp(40px, 8vw, 160px) clamp(80px, 6vw, 100px);
   max-width: 1080px;
   margin: 0 auto;
   pointer-events: none;
@@ -160,8 +180,13 @@ body {
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.22em;
-  color: var(--blueprint);
+  color: var(--blueprint); /* default — overridden per room below */
 }
+.panel[data-panel="foyer"]   .panel-head .callout { color: var(--terracotta); }
+.panel[data-panel="study"]   .panel-head .callout { color: var(--blueprint); }
+.panel[data-panel="gallery"] .panel-head .callout { color: var(--garden); }
+.panel[data-panel="lounge"]  .panel-head .callout { color: var(--blueprint); }
+.panel[data-panel="hearth"]  .panel-head .callout { color: var(--terracotta); }
 .panel-head h2 {
   font-family: var(--mono);
   font-size: clamp(40px, 7vw, 88px);
@@ -186,7 +211,7 @@ body {
   text-transform: uppercase;
   margin: 0 0 18px;
 }
-.eyebrow em { font-style: normal; color: var(--blueprint); }
+.eyebrow em { font-style: normal; color: var(--terracotta); }
 
 .lede {
   font-size: clamp(17px, 1.8vw, 22px);
@@ -233,7 +258,7 @@ body {
   align-items: baseline;
 }
 .annotation .ann-key {
-  color: var(--blueprint);
+  color: var(--garden);
   font-size: 9px;
   letter-spacing: 0.24em;
 }
@@ -295,35 +320,85 @@ body {
   color: var(--graphite);
 }
 
-/* GALLERY ----- */
-.segments {
+/* GALLERY (news feed) ----- */
+.news-status {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 0 0 28px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+}
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--garden);
+  display: inline-block;
+  animation: pulse 1.8s ease-out infinite;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0   rgba(121, 201, 159, 0.55); }
+  70%  { box-shadow: 0 0 0 10px rgba(121, 201, 159, 0); }
+  100% { box-shadow: 0 0 0 0   rgba(121, 201, 159, 0); }
+}
+.live-label { color: var(--garden); }
+.live-meta  { color: var(--graphite); }
+
+.news {
   display: grid;
   gap: 0;
   width: 100%;
-  max-width: 720px;
+  max-width: 920px;
   border-top: 0.75px solid var(--hairline);
-  margin-bottom: 18px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
 }
-.segments li {
+.news li {
   display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 28px;
-  padding: 24px 0;
-  border-bottom: 0.5px solid var(--hairline);
+  grid-template-columns: 120px 1fr 110px;
+  gap: 24px;
   align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 0.5px solid var(--hairline);
 }
-.segments .src {
+.news .src {
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.22em;
+  font-size: 10px;
+  letter-spacing: 0.24em;
   color: var(--blueprint);
 }
-.segments h3 {
+.news h3 {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: clamp(22px, 2.2vw, 30px);
+  font-size: clamp(15px, 1.4vw, 18px);
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.4;
+}
+.news h3 a {
+  color: var(--vellum);
+  text-decoration: none;
+  transition: color 160ms var(--ease);
+}
+.news h3 a:hover { color: var(--garden); }
+.news .date {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--graphite);
+  text-align: right;
+}
+.news-empty {
+  display: block !important;
+  grid-template-columns: none !important;
+  padding: 32px 0 !important;
+  color: var(--graphite);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  border-bottom: none !important;
 }
 
 /* LOUNGE ----- */
@@ -331,7 +406,7 @@ body {
   width: 100%;
   max-width: 720px;
   padding: 24px 28px 26px;
-  border: 0.75px solid var(--blueprint);
+  border: 0.75px solid var(--terracotta);
   margin-bottom: 32px;
 }
 .featured .pin {
@@ -339,7 +414,7 @@ body {
   font-family: var(--mono);
   font-size: 9px;
   letter-spacing: 0.24em;
-  color: var(--blueprint);
+  color: var(--terracotta);
   margin-bottom: 14px;
 }
 .featured h3 {
@@ -355,11 +430,13 @@ body {
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.22em;
-  color: var(--blueprint);
+  color: var(--terracotta);
   text-decoration: none;
-  border-bottom: 0.5px solid var(--blueprint);
+  border-bottom: 0.5px solid var(--terracotta);
   padding-bottom: 3px;
+  transition: color 160ms var(--ease), border-color 160ms var(--ease);
 }
+.rule-link:hover { color: var(--vellum); border-color: var(--vellum); }
 .posts {
   display: grid;
   gap: 18px;
@@ -396,12 +473,12 @@ body {
   font-size: clamp(13px, 1.1vw, 15px);
   letter-spacing: 0.24em;
   color: var(--ink);
-  background: var(--blueprint);
+  background: var(--terracotta);
   padding: 16px 24px;
   text-decoration: none;
-  transition: background 160ms var(--ease);
+  transition: background 160ms var(--ease), transform 160ms var(--ease);
 }
-.cta:hover { background: var(--vellum); }
+.cta:hover { background: var(--vellum); transform: translateY(-1px); }
 .cta-meta {
   font-family: var(--mono);
   font-size: 10px;
