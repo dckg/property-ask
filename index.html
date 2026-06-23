@@ -13,6 +13,24 @@
 </head>
 <body>
 
+<!-- ===================== ICON SPRITE ===================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-wa" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.296-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.02 22a9.96 9.96 0 01-5.31-1.531L2 21.733l1.249-4.624a9.961 9.961 0 01-1.665-5.523C1.584 6.066 6.667 1.001 12.02 1.001S22.456 6.066 22.456 11.586 17.373 22 12.02 22z"/>
+    </symbol>
+    <symbol id="i-li" viewBox="0 0 24 24">
+      <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.247h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.711z"/>
+    </symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.336 3.608 1.311.975.975 1.249 2.242 1.311 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.336 2.633-1.311 3.608-.975.975-2.242 1.249-3.608 1.311-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.336-3.608-1.311-.975-.975-1.249-2.242-1.311-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.062-1.366.336-2.633 1.311-3.608.975-.975 2.242-1.249 3.608-1.311C8.416 2.175 8.796 2.163 12 2.163zM12 0C8.741 0 8.332.014 7.052.072 5.197.157 3.355.673 2.014 2.014.673 3.355.157 5.197.072 7.052.014 8.332 0 8.741 0 12s.014 3.668.072 4.948c.085 1.855.601 3.697 1.942 5.038 1.341 1.341 3.183 1.857 5.038 1.942C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.855-.085 3.697-.601 5.038-1.942 1.341-1.341 1.857-3.183 1.942-5.038.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.085-1.855-.601-3.697-1.942-5.038C20.645.673 18.803.157 16.948.072 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+    </symbol>
+    <symbol id="i-pn" viewBox="0 0 120 32">
+      <text x="0" y="22" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="22" letter-spacing="-0.5" fill="currentColor">PropNex</text>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- ===================== NAV ===================== -->
 <header class="site-nav">
   <a class="brand" href="#top">
@@ -26,9 +44,9 @@
     <a href="#area">Homes</a>
     <a href="#contact">Contact</a>
   </nav>
-  <a class="nav-cta" href="https://wa.me/6580166178" target="_blank" rel="noopener">
+  <a class="nav-cta" href="https://wa.me/6580166178" target="_blank" rel="noopener" aria-label="Message Chee How on WhatsApp">
+    <svg class="ico ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>
     <span>WhatsApp</span>
-    <span class="cta-arrow" aria-hidden="true">→</span>
   </a>
 </header>
 
@@ -48,8 +66,8 @@
 
     <div class="hero-actions">
       <a class="btn btn-primary" href="https://wa.me/6580166178" target="_blank" rel="noopener">
+        <svg class="ico ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>
         Talk to Chee How on WhatsApp
-        <span class="cta-arrow" aria-hidden="true">→</span>
       </a>
       <a class="btn btn-ghost" href="#about">What I do</a>
     </div>
@@ -95,6 +113,14 @@
   <div class="section-head">
     <span class="eyebrow">About</span>
     <h2 class="section-title">Hi, I'm Chee How.</h2>
+    <p class="about-affil" aria-label="Affiliated with PropNex Realty">
+      <span class="affil-key">Affiliated with</span>
+      <svg class="propnex-mark" viewBox="0 0 130 28" aria-label="PropNex">
+        <text x="0" y="22" font-family="Inter, system-ui, sans-serif"
+              font-weight="900" font-size="26" letter-spacing="-0.6"
+              fill="var(--pn-orange)">PropNex</text>
+      </svg>
+    </p>
   </div>
 
   <div class="about-grid">
@@ -112,6 +138,11 @@
         your actual goals — including the financial planning that
         sits behind each property decision.
       </p>
+    </div>
+
+    <div class="principles-head">
+      <span class="ph-eyebrow">How I work</span>
+      <h3 class="ph-title">Four things you can expect.</h3>
     </div>
 
     <ul class="principles">
@@ -176,7 +207,8 @@
 
   <p class="ls-foot-link">
     <a href="https://www.propertyguru.com.sg/agent/chua-chee-how-901578302" target="_blank" rel="noopener">
-      View Chee How's full PropertyGuru profile <span aria-hidden="true">→</span>
+      View full PropertyGuru profile
+      <span aria-hidden="true">→</span>
     </a>
     <span class="ls-updated">Updated <span data-listings="updated">—</span></span>
   </p>
@@ -259,24 +291,34 @@
   </div>
 
   <div class="contact-grid">
-    <div class="contact-card card-primary">
+    <div class="contact-card card-primary card-wa">
+      <span class="tile-logo">
+        <svg class="ico ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>
+      </span>
       <span class="card-key">WhatsApp or call</span>
       <span class="card-val">+65 8016 6178</span>
       <div class="card-actions">
         <a class="card-btn" href="https://wa.me/6580166178" target="_blank" rel="noopener">
-          WhatsApp <span aria-hidden="true">→</span>
+          <svg class="ico ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>
+          WhatsApp
         </a>
         <a class="card-btn card-btn-ghost" href="tel:+6580166178">
           Call <span aria-hidden="true">→</span>
         </a>
       </div>
     </div>
-    <a class="contact-card" href="https://www.linkedin.com/in/chee-how-chua-5ba74067/" target="_blank" rel="noopener">
+    <a class="contact-card card-li" href="https://www.linkedin.com/in/chee-how-chua-5ba74067/" target="_blank" rel="noopener">
+      <span class="tile-logo">
+        <svg class="ico ico-li" aria-hidden="true"><use href="#i-li"/></svg>
+      </span>
       <span class="card-key">LinkedIn</span>
       <span class="card-val">Chee How Chua</span>
       <span class="card-cta">Open profile <span aria-hidden="true">→</span></span>
     </a>
-    <a class="contact-card" href="https://www.instagram.com/chchua166178/" target="_blank" rel="noopener">
+    <a class="contact-card card-ig" href="https://www.instagram.com/chchua166178/" target="_blank" rel="noopener">
+      <span class="tile-logo">
+        <svg class="ico ico-ig" aria-hidden="true"><use href="#i-ig"/></svg>
+      </span>
       <span class="card-key">Instagram</span>
       <span class="card-val">@chchua166178</span>
       <span class="card-cta">Follow <span aria-hidden="true">→</span></span>
