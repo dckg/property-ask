@@ -41,7 +41,7 @@
 
     <h1 class="hero-title">
       Looking to <em>buy</em>, <em>sell</em>,<br />
-      or <em>value</em> your home<br />
+      <em>rent</em>, or <em>value</em> your home<br />
       in Singapore?
     </h1>
 
@@ -72,6 +72,17 @@
     <div class="pin-row"><span class="pin-key">Direct</span><span class="pin-val">+65 8016 6178</span></div>
   </aside>
 </section>
+
+<!-- ===================== PHOTO STRIP ===================== -->
+<figure class="photo-strip">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/HDB_blocks_in_Dover.jpg/960px-HDB_blocks_in_Dover.jpg"
+       alt="HDB blocks in Dover, District 05, Singapore"
+       loading="lazy" />
+  <figcaption>
+    <span class="ps-key">Dover · District 05</span>
+    <p class="ps-line">This is the skyline I work in every day.</p>
+  </figcaption>
+</figure>
 
 <!-- ===================== ABOUT ===================== -->
 <section id="about" class="about">
@@ -151,24 +162,48 @@
 
   <div class="area-grid">
     <article class="zone z-park">
-      <span class="zone-tag">Greenery</span>
-      <h3>West Coast Park · Labrador</h3>
-      <p>The coastline, the playgrounds, the sea views that quietly carry condo prices in the area.</p>
+      <img class="zone-img"
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Block_21_HDB_Holland%2C_Singapore_%28Unsplash%29.jpg/960px-Block_21_HDB_Holland%2C_Singapore_%28Unsplash%29.jpg"
+           alt="Aerial view of Block 21 HDB Holland with rooftop garden, Singapore"
+           loading="lazy" />
+      <div class="zone-body">
+        <span class="zone-tag">Greenery</span>
+        <h3>West Coast Park · Labrador</h3>
+        <p>The coastline, the playgrounds, the sea views that quietly carry condo prices in the area.</p>
+      </div>
     </article>
     <article class="zone z-mrt">
-      <span class="zone-tag">Connectivity</span>
-      <h3>Pasir Panjang · Kent Ridge · Clementi</h3>
-      <p>Three MRT stops, the Ayer Rajah, and the West Coast Highway — D05 moves.</p>
+      <img class="zone-img"
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/HDB_blocks_in_Dover.jpg/960px-HDB_blocks_in_Dover.jpg"
+           alt="HDB blocks in Dover, Singapore"
+           loading="lazy" />
+      <div class="zone-body">
+        <span class="zone-tag">Connectivity</span>
+        <h3>Pasir Panjang · Kent Ridge · Clementi</h3>
+        <p>Three MRT stops, the Ayer Rajah, and the West Coast Highway — D05 moves.</p>
+      </div>
     </article>
     <article class="zone z-school">
-      <span class="zone-tag">Institutions</span>
-      <h3>NUS · Science Park · Fairfield</h3>
-      <p>Anchor institutions shape demand for rentals and family upgrades alike.</p>
+      <img class="zone-img"
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/HDB_blocks_at_Sin_Ming_Court%2C_Upper_Thomson%2C_Singapore%2C_at_night_-_2022-04-23.jpg/960px-HDB_blocks_at_Sin_Ming_Court%2C_Upper_Thomson%2C_Singapore%2C_at_night_-_2022-04-23.jpg"
+           alt="HDB blocks at Sin Ming Court at night, Singapore"
+           loading="lazy" />
+      <div class="zone-body">
+        <span class="zone-tag">Institutions</span>
+        <h3>NUS · Science Park · Fairfield</h3>
+        <p>Anchor institutions shape demand for rentals and family upgrades alike.</p>
+      </div>
     </article>
     <article class="zone z-launch">
-      <span class="zone-tag">New launches</span>
-      <h3>Recent and upcoming</h3>
-      <p>Ask me what's launching, what's pricing well, and what's worth a viewing this season.</p>
+      <img class="zone-img"
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Block_142_HDB_Potong_Pasir.jpg/960px-Block_142_HDB_Potong_Pasir.jpg"
+           alt="Block 142 HDB Potong Pasir, Singapore"
+           loading="lazy" />
+      <div class="zone-body">
+        <span class="zone-tag">New launches</span>
+        <h3>Recent and upcoming</h3>
+        <p>Ask me what's launching, what's pricing well, and what's worth a viewing this season.</p>
+      </div>
     </article>
   </div>
 </section>
@@ -182,16 +217,18 @@
   </div>
 
   <div class="contact-grid">
-    <a class="contact-card card-primary" href="https://wa.me/6580166178" target="_blank" rel="noopener">
-      <span class="card-key">WhatsApp</span>
+    <div class="contact-card card-primary">
+      <span class="card-key">WhatsApp or call</span>
       <span class="card-val">+65 8016 6178</span>
-      <span class="card-cta">Open chat <span aria-hidden="true">→</span></span>
-    </a>
-    <a class="contact-card" href="tel:+6580166178">
-      <span class="card-key">Phone</span>
-      <span class="card-val">+65 8016 6178</span>
-      <span class="card-cta">Call <span aria-hidden="true">→</span></span>
-    </a>
+      <div class="card-actions">
+        <a class="card-btn" href="https://wa.me/6580166178" target="_blank" rel="noopener">
+          WhatsApp <span aria-hidden="true">→</span>
+        </a>
+        <a class="card-btn card-btn-ghost" href="tel:+6580166178">
+          Call <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
     <a class="contact-card" href="https://www.linkedin.com/in/chee-how-chua-5ba74067/" target="_blank" rel="noopener">
       <span class="card-key">LinkedIn</span>
       <span class="card-val">Chee How Chua</span>
@@ -217,7 +254,10 @@
       <p>PropNex Realty Pte Ltd · CEA Licence No. L3008022J</p>
       <p>Member of the Council for Estate Agencies (CEA), Singapore.</p>
     </div>
-    <p class="foot-copy">© 2026 Chee How Chua. Built with care for clients in District&nbsp;05.</p>
+    <p class="foot-copy">
+      © 2026 Chee How Chua. Built with care for clients in District&nbsp;05.<br />
+      <span class="foot-credit">Singapore photography via Wikimedia Commons (CC-BY-SA).</span>
+    </p>
   </div>
 </footer>
 

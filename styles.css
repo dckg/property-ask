@@ -39,6 +39,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 ul, ol { margin: 0; padding: 0; list-style: none; }
 a { color: inherit; text-decoration: none; }
 img, svg { display: block; max-width: 100%; }
+figure { margin: 0; }
 
 body {
   background: var(--sand);
@@ -217,7 +218,8 @@ body {
   color: var(--coral);
 }
 .hero-title em:nth-of-type(2) { color: var(--sea); }
-.hero-title em:nth-of-type(3) { color: var(--leaf); }
+.hero-title em:nth-of-type(3) { color: var(--sun); }
+.hero-title em:nth-of-type(4) { color: var(--leaf); }
 
 .hero-tag {
   font-family: var(--serif);
@@ -230,9 +232,7 @@ body {
 }
 .hero-tag em {
   font-style: italic;
-  color: var(--ink);
-  background: linear-gradient(180deg, transparent 65%, var(--sun) 65%);
-  padding: 0 4px;
+  color: var(--coral);
 }
 
 .hero-actions {
@@ -315,6 +315,57 @@ body {
   font-variation-settings: "SOFT" 30;
 }
 
+/* ---------- PHOTO STRIP (between hero and about) ---------- */
+.photo-strip {
+  position: relative;
+  height: clamp(280px, 38vw, 460px);
+  overflow: hidden;
+  background: var(--ink);
+}
+.photo-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(105%);
+}
+.photo-strip figcaption {
+  position: absolute;
+  left: var(--pad-edge);
+  bottom: clamp(20px, 3vw, 36px);
+  color: var(--bone);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+.photo-strip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.55) 100%);
+}
+.photo-strip .ps-key {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--coral);
+  color: var(--bone);
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.photo-strip .ps-line {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 500;
+  font-variation-settings: "SOFT" 70;
+  margin: 0;
+  line-height: 1.15;
+  max-width: 22ch;
+}
+
 /* ---------- ABOUT (dark ink) ---------- */
 .about {
   background: var(--ink);
@@ -342,9 +393,7 @@ body {
 }
 .about-lede strong {
   font-weight: 500;
-  background: linear-gradient(180deg, transparent 70%, var(--sun) 70%);
-  padding: 0 2px;
-  color: var(--bone);
+  color: var(--sun);
 }
 .about-rest { color: rgba(250, 246, 236, 0.78); margin: 0; max-width: 42ch; }
 
@@ -432,12 +481,9 @@ body {
 }
 .news h3 a {
   color: var(--ink);
-  background-image: linear-gradient(180deg, transparent 92%, var(--leaf) 92%);
-  background-size: 0% 100%;
-  background-repeat: no-repeat;
-  transition: background-size 200ms var(--ease);
+  transition: color 160ms var(--ease);
 }
-.news h3 a:hover { background-size: 100% 100%; }
+.news h3 a:hover { color: var(--leaf); }
 .news .date {
   font-family: var(--mono);
   font-size: 12px;
@@ -478,13 +524,39 @@ body {
 }
 .zone {
   position: relative;
-  padding: 32px 28px;
+  overflow: hidden;
   border-radius: var(--rad-lg);
-  background: var(--bone);
-  color: var(--ink);
+  background: var(--ink-2);
+  color: var(--bone);
   transition: transform 240ms var(--ease), box-shadow 240ms var(--ease);
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
-.zone:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -22px rgba(26, 26, 26, 0.24); }
+.zone:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -22px rgba(26, 26, 26, 0.32); }
+.zone:hover .zone-img { transform: scale(1.04); }
+.zone-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform 400ms var(--ease);
+}
+.zone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0.0) 35%, rgba(26, 26, 26, 0.85) 100%);
+  z-index: 1;
+}
+.zone-body {
+  position: relative;
+  z-index: 2;
+  padding: 22px 24px 26px;
+}
 .zone-tag {
   display: inline-block;
   font-family: var(--mono);
@@ -493,27 +565,23 @@ body {
   text-transform: uppercase;
   padding: 5px 10px;
   border-radius: 999px;
-  margin-bottom: 22px;
+  margin-bottom: 14px;
   color: var(--bone);
 }
 .zone h3 {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(20px, 1.9vw, 26px);
-  line-height: 1.2;
-  margin: 0 0 12px;
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.15;
+  margin: 0 0 8px;
   font-variation-settings: "SOFT" 40;
+  color: var(--bone);
 }
-.zone p { margin: 0; color: var(--ink-2); font-size: 15px; }
+.zone p { margin: 0; color: rgba(250, 246, 236, 0.85); font-size: 14px; line-height: 1.45; }
 .z-park   .zone-tag { background: var(--leaf); }
 .z-mrt    .zone-tag { background: var(--sea); }
 .z-school .zone-tag { background: var(--coral); }
 .z-launch .zone-tag { background: var(--sun); color: var(--ink); }
-
-.z-park   { box-shadow: inset 4px 0 0 var(--leaf); }
-.z-mrt    { box-shadow: inset 4px 0 0 var(--sea); }
-.z-school { box-shadow: inset 4px 0 0 var(--coral); }
-.z-launch { box-shadow: inset 4px 0 0 var(--sun); }
 
 /* ---------- CONTACT (sun warm) ---------- */
 .contact {
@@ -569,7 +637,32 @@ body {
   font-size: 14px;
   color: var(--coral);
 }
-.card-primary .card-cta { color: var(--sun); }
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+.card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--sun);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 160ms var(--ease), transform 160ms var(--ease);
+}
+.card-btn:hover { background: var(--bone); transform: translateY(-1px); }
+.card-btn-ghost {
+  background: transparent;
+  color: var(--bone);
+  border: 1.5px solid rgba(250, 246, 236, 0.45);
+}
+.card-btn-ghost:hover { background: var(--bone); color: var(--ink); border-color: var(--bone); }
 
 /* ---------- FOOTER ---------- */
 .site-footer {
@@ -615,7 +708,9 @@ body {
   color: rgba(250, 246, 236, 0.4);
   text-align: right;
   margin: 0;
+  line-height: 1.6;
 }
+.foot-credit { color: rgba(250, 246, 236, 0.28); }
 
 /* ---------- REDUCED MOTION ---------- */
 @media (prefers-reduced-motion: reduce) {
