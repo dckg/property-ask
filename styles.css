@@ -217,6 +217,7 @@ body {
 .hero-title em:nth-of-type(2) { color: var(--sea); }
 .hero-title em:nth-of-type(3) { color: var(--sun); }
 .hero-title em:nth-of-type(4) { color: var(--leaf); }
+.hero-title em:nth-of-type(5) { color: var(--pg-purple); }
 
 .hero-tag {
   font-family: var(--serif);
@@ -1419,7 +1420,7 @@ body {
 }
 .foot-propnex-mark {
   width: auto;
-  height: calc(13px * 1.6 * 2);
+  height: 68px;
   display: block;
   background: white;
   border-radius: 4px;
