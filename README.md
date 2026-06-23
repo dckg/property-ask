@@ -1,6 +1,6 @@
 # property-ask
 
-Architectural-blueprint portfolio for **Chee How Chua** — Property Agent at PropNex Singapore.
+Architectural-blueprint portfolio for **Chee How Chua** — Singapore realtor.
 
 Content sourced from [cheehow.homes](https://cheehow.homes). Design: vellum-on-ink drafting sheet, IBM Plex Mono + Hanken Grotesk, plan-zoom navigation.
 

@@ -2,8 +2,8 @@ name: Refresh market news
 
 on:
   schedule:
-    # Every 6 hours, on the hour
-    - cron: '0 */6 * * *'
+    # Daily at 00:00 UTC (08:00 SGT)
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:

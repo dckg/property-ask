@@ -333,29 +333,6 @@ body {
   color: rgba(26, 26, 26, 0.55);
 }
 
-.hero-pin {
-  position: absolute;
-  top: clamp(80px, 12vh, 140px);
-  right: var(--pad-edge);
-  display: inline-flex;
-  align-items: center;
-  gap: 0;
-  padding: 4px 6px;
-  background: white;
-  color: var(--ink);
-  border-radius: 6px;
-  box-shadow: 0 4px 12px -6px rgba(26, 26, 26, 0.22);
-  transform: none;
-}
-.hero-pin .pin-key,
-.hero-pin .pin-foot { display: none; }
-.pin-propnex {
-  width: 36px;
-  height: auto;
-  display: block;
-  background: white;
-}
-
 /* ---------- PHOTO STRIP (between hero and about) ---------- */
 .photo-strip {
   position: relative;
@@ -415,27 +392,6 @@ body {
 }
 .about .eyebrow { background: rgba(250, 246, 236, 0.08); color: var(--bone); }
 .about .section-title { color: var(--bone); }
-.about-affil {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  margin: 22px 0 0;
-  padding: 10px 16px 10px 14px;
-  background: white;
-  border-radius: var(--rad-md);
-}
-.about-affil .affil-key {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.55);
-}
-.about-affil .propnex-mark {
-  width: 92px;
-  height: auto;
-  display: block;
-}
 .about-top {
   max-width: var(--maxw);
   margin: 0 auto;
@@ -466,28 +422,6 @@ body {
   object-fit: cover;
   display: block;
 }
-.about-affil {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin: 0;
-  padding: 8px 14px 8px 12px;
-  background: white;
-  border-radius: var(--rad-md);
-}
-.about-affil .affil-key {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.6);
-}
-.about-affil .propnex-mark {
-  width: 72px;
-  height: auto;
-  display: block;
-}
-
 .about-grid {
   max-width: var(--maxw);
   margin: clamp(40px, 5vw, 72px) auto 0;
@@ -1390,7 +1324,7 @@ body {
   max-width: var(--maxw);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.4fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   gap: 36px;
   align-items: end;
 }
@@ -1417,19 +1351,6 @@ body {
   gap: 4px;
 }
 .foot-compliance p { margin: 0; }
-.foot-propnex {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  margin: 0;
-}
-.foot-propnex-mark {
-  width: auto;
-  height: 68px;
-  display: block;
-  background: white;
-  border-radius: 4px;
-}
 .foot-credit { color: rgba(250, 246, 236, 0.45); }
 
 /* ---------- REDUCED MOTION ---------- */
