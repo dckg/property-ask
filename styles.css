@@ -337,36 +337,21 @@ body {
   right: var(--pad-edge);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 10px 6px 6px;
+  gap: 0;
+  padding: 4px 6px;
   background: white;
   color: var(--ink);
-  border-radius: 999px;
-  box-shadow: 0 8px 22px -10px rgba(26, 26, 26, 0.22);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px -6px rgba(26, 26, 26, 0.22);
   transform: none;
 }
-.hero-pin .pin-key {
-  font-family: var(--mono);
-  font-size: 8px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.55);
-  display: none;
-}
+.hero-pin .pin-key,
+.hero-pin .pin-foot { display: none; }
 .pin-propnex {
-  width: 56px;
+  width: 36px;
   height: auto;
   display: block;
   background: white;
-  border-radius: 4px;
-}
-.pin-foot {
-  font-family: var(--mono);
-  font-size: 8.5px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.55);
-  white-space: nowrap;
 }
 
 /* ---------- PHOTO STRIP (between hero and about) ---------- */
@@ -1407,4 +1392,5 @@ body {
   .news .date { text-align: left; }
   .hero-meta { gap: 6px; }
   .hero-meta li { padding: 5px 10px; font-size: 11px; }
+  .principles-head { flex-direction: column; align-items: flex-start; gap: 6px; }
 }
