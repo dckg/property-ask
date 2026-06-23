@@ -350,9 +350,11 @@ body {
   color: rgba(26, 26, 26, 0.6);
 }
 .pin-propnex {
-  width: 140px;
+  width: 92px;
   height: auto;
   display: block;
+  background: white;
+  border-radius: 4px;
 }
 .pin-foot {
   font-family: var(--mono);
