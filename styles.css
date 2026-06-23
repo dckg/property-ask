@@ -687,7 +687,7 @@ body {
   border-radius: var(--rad-lg);
   cursor: pointer;
   outline: none;
-  min-height: 480px;
+  min-height: 528px;
   position: relative;
 }
 .ls-card:focus-visible { box-shadow: 0 0 0 3px var(--sea); border-radius: var(--rad-lg); }
@@ -1050,7 +1050,7 @@ body {
   display: block;
   overflow: hidden;
   border-radius: var(--rad-lg);
-  min-height: 480px;
+  min-height: 528px;
   text-decoration: none;
   color: white;
   background: var(--pg-purple);
