@@ -434,9 +434,61 @@ body {
   height: auto;
   display: block;
 }
+.about-top {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+.about-intro { display: grid; gap: 24px; }
+.about-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding-top: 12px;
+}
+.portrait {
+  width: clamp(220px, 24vw, 320px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--ink-2);
+  box-shadow: 0 30px 70px -28px rgba(0, 0, 0, 0.6);
+}
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.about-affil {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 8px 14px 8px 12px;
+  background: white;
+  border-radius: var(--rad-md);
+}
+.about-affil .affil-key {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 26, 0.6);
+}
+.about-affil .propnex-mark {
+  width: 72px;
+  height: auto;
+  display: block;
+}
+
 .about-grid {
   max-width: var(--maxw);
-  margin: 56px auto 0;
+  margin: clamp(40px, 5vw, 72px) auto 0;
   display: flex;
   flex-direction: column;
   gap: clamp(40px, 5vw, 64px);
@@ -1378,8 +1430,9 @@ body {
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 960px) {
-  .hero-pin { display: none; }
-  .about-grid { grid-template-columns: 1fr; }
+  .about-top { grid-template-columns: 1fr; gap: 32px; }
+  .about-aside { flex-direction: row; justify-content: flex-start; padding-top: 0; }
+  .portrait { width: clamp(160px, 30vw, 220px); }
   .news li { grid-template-columns: 110px minmax(0, 1fr) 90px; gap: 16px; }
   .foot-grid { grid-template-columns: 1fr; gap: 22px; align-items: flex-start; }
   .foot-copy { text-align: left; }
