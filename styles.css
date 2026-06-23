@@ -26,6 +26,9 @@
 
   --ease: cubic-bezier(.65,.05,.36,1);
 
+  --lift: translateY(-4px);
+  --hover-shadow: 0 24px 50px -22px rgba(26, 26, 26, 0.32);
+
   --pad-section: clamp(64px, 9vw, 140px);
   --pad-edge:    clamp(20px, 5vw, 80px);
   --maxw:        1280px;
@@ -72,7 +75,9 @@ body {
   flex-direction: column;
   line-height: 1.1;
   margin-right: auto;
+  transition: color 160ms var(--ease);
 }
+.brand:hover { color: var(--sea); }
 .brand-name {
   font-family: var(--serif);
   font-style: italic;
@@ -403,6 +408,12 @@ body {
   border-radius: var(--rad-md);
   background: var(--ink-2);
   border-left: 4px solid var(--bone);
+  transition: transform 240ms var(--ease), box-shadow 240ms var(--ease), background 240ms var(--ease);
+}
+.principle:hover {
+  transform: var(--lift);
+  box-shadow: 0 24px 50px -22px rgba(0, 0, 0, 0.6);
+  background: #322d27;
 }
 .principle h3 {
   font-family: var(--serif);
@@ -534,7 +545,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
 }
-.zone:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -22px rgba(26, 26, 26, 0.32); }
+.zone:hover { transform: var(--lift); box-shadow: var(--hover-shadow); }
 .zone:hover .zone-img { transform: scale(1.04); }
 .zone-img {
   position: absolute;
@@ -607,7 +618,7 @@ body {
   transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
   align-content: start;
 }
-.contact-card:hover { transform: translateY(-3px); box-shadow: 0 24px 50px -22px rgba(26, 26, 26, 0.32); }
+.contact-card:hover { transform: var(--lift); box-shadow: var(--hover-shadow); }
 .contact-card.card-primary {
   background: var(--ink);
   color: var(--bone);
