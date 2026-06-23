@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CHEE HOW — Residential · Singapore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Hanken+Grotesk:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+<button id="back" class="back" aria-label="Return to floor plan" hidden>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.25"/></svg>
+  <span>SHT&nbsp;A1 · OVERVIEW</span>
+</button>
+
+<main class="sheet">
+  <svg id="plan" viewBox="0 0 1000 600" role="img" aria-label="Floor plan navigation: five clickable rooms">
+    <defs>
+      <pattern id="minor" width="10" height="10" patternUnits="userSpaceOnUse">
+        <path d="M10 0H0V10" fill="none" stroke="var(--hairline)" stroke-width="0.25"/>
+      </pattern>
+      <pattern id="major" width="50" height="50" patternUnits="userSpaceOnUse">
+        <rect width="50" height="50" fill="url(#minor)"/>
+        <path d="M50 0H0V50" fill="none" stroke="var(--hairline)" stroke-width="0.5"/>
+      </pattern>
+    </defs>
+
+    <g class="canvas">
+    <rect width="1000" height="600" fill="url(#major)"/>
+
+    <!-- ruled margin labels (top) -->
+    <g class="ruler" font-family="IBM Plex Mono" font-size="6" fill="var(--graphite)">
+      <text x="100" y="40">100</text><text x="300" y="40">300</text>
+      <text x="500" y="40">500</text><text x="700" y="40">700</text>
+      <text x="900" y="40">900</text>
+    </g>
+
+    <!-- ROOMS -->
+    <g class="room" data-room="study" tabindex="0" role="button" aria-label="Open Study — Market Reports">
+      <rect x="100" y="80" width="300" height="180"/>
+      <text class="r-name" x="118" y="118">STUDY</text>
+      <text class="r-tag"  x="118" y="138">02 / A1</text>
+      <text class="r-use"  x="118" y="245">PRACTICE</text>
+    </g>
+
+    <g class="room" data-room="gallery" tabindex="0" role="button" aria-label="Open Gallery — News">
+      <rect x="440" y="80" width="460" height="180"/>
+      <text class="r-name" x="458" y="118">GALLERY</text>
+      <text class="r-tag"  x="458" y="138">03 / A1</text>
+      <text class="r-use"  x="458" y="245">COVERAGE</text>
+    </g>
+
+    <g class="room" data-room="foyer" tabindex="0" role="button" aria-label="Open Foyer — Bio">
+      <rect x="240" y="300" width="520" height="120"/>
+      <text class="r-name" x="258" y="338">FOYER</text>
+      <text class="r-tag"  x="258" y="358">01 / A1</text>
+      <text class="r-use"  x="258" y="405">PROFILE</text>
+    </g>
+
+    <g class="room" data-room="lounge" tabindex="0" role="button" aria-label="Open Lounge — LinkedIn posts">
+      <rect x="100" y="460" width="360" height="120"/>
+      <text class="r-name" x="118" y="498">LOUNGE</text>
+      <text class="r-tag"  x="118" y="518">04 / A1</text>
+      <text class="r-use"  x="118" y="565">NOTES</text>
+    </g>
+
+    <g class="room" data-room="hearth" tabindex="0" role="button" aria-label="Open Hearth — Contact">
+      <rect x="500" y="460" width="400" height="120"/>
+      <text class="r-name" x="518" y="498">HEARTH</text>
+      <text class="r-tag"  x="518" y="518">05 / A1</text>
+      <text class="r-use"  x="518" y="565">CONTACT</text>
+    </g>
+    </g><!-- /.canvas -->
+
+    <!-- north arrow -->
+    <g class="north" transform="translate(940,545)" stroke="var(--vellum)" fill="none" stroke-width="0.6">
+      <circle r="14"/>
+      <path d="M0 -10 L4 8 L0 4 L-4 8 Z" fill="var(--vellum)" stroke="none"/>
+      <text x="0" y="-18" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="var(--graphite)" stroke="none">N</text>
+    </g>
+  </svg>
+</main>
+
+<!-- ROOM PANELS — shown when zoomed -->
+<section class="panel" data-panel="foyer" hidden aria-hidden="true">
+  <header class="panel-head">
+    <span class="callout">01 / A1</span>
+    <h2>FOYER</h2>
+    <span class="dim">— PROFILE</span>
+  </header>
+  <p class="eyebrow">Seeking your next property deal? <em>Chee How shows you how.</em></p>
+  <p class="lede">
+    Chee How is a Property Agent at PropNex Singapore, helping clients
+    navigate the residential market with clarity and confidence. His
+    work spans HDB resale, private condominiums, landed properties, and
+    new launches.
+  </p>
+  <dl class="dimensions">
+    <div><dt>Agency</dt><dd>PROPNEX</dd></div>
+    <div><dt>District</dt><dd>D05 · WEST COAST</dd></div>
+    <div><dt>Direct</dt><dd>+65 8016 6178</dd></div>
+  </dl>
+  <p class="annotation">
+    <span class="ann-key">LANGUAGES</span>
+    <span class="ann-sep">·</span>
+    English<span class="ann-sep">·</span>Mandarin<span class="ann-sep">·</span>Teochew<span class="ann-sep">·</span>Cantonese<span class="ann-sep">·</span>Singlish
+  </p>
+</section>
+
+<section class="panel" data-panel="study" hidden aria-hidden="true">
+  <header class="panel-head">
+    <span class="callout">02 / A1</span>
+    <h2>STUDY</h2>
+    <span class="dim">— PRACTICE</span>
+  </header>
+  <ol class="principles">
+    <li>
+      <span class="num">01</span>
+      <h3>Clear, practical advice</h3>
+      <p>Chee How helps clients navigate the Singapore residential market with clarity and confidence, across HDB resale, private condominiums, landed homes, and new launches.</p>
+    </li>
+    <li>
+      <span class="num">02</span>
+      <h3>End-to-end support</h3>
+      <p>From market analysis and pricing strategy through viewings, negotiations, paperwork, and completion — transparent support aligned with your goals.</p>
+    </li>
+    <li>
+      <span class="num">03</span>
+      <h3>Aligned with your goals</h3>
+      <p>Whether you are upgrading, right-sizing, or investing long-term, every recommendation is grounded in data, timing, and your financial priorities.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="panel" data-panel="gallery" hidden aria-hidden="true">
+  <header class="panel-head">
+    <span class="callout">03 / A1</span>
+    <h2>GALLERY</h2>
+    <span class="dim">— COVERAGE</span>
+  </header>
+  <ul class="segments">
+    <li><span class="src">01</span><h3>HDB Resale</h3></li>
+    <li><span class="src">02</span><h3>Private Condominiums</h3></li>
+    <li><span class="src">03</span><h3>Landed Homes</h3></li>
+    <li><span class="src">04</span><h3>New Launches</h3></li>
+  </ul>
+  <p class="note">Residential property advisory across the Singapore market.</p>
+</section>
+
+<section class="panel" data-panel="lounge" hidden aria-hidden="true">
+  <header class="panel-head">
+    <span class="callout">04 / A1</span>
+    <h2>LOUNGE</h2>
+    <span class="dim">— NOTES</span>
+  </header>
+  <article class="featured">
+    <span class="pin">PROFILE · LINKEDIN</span>
+    <h3>Chee How Chua</h3>
+    <p>Follow on LinkedIn for Singapore property notes, market commentary, and updates from the field.</p>
+    <a class="rule-link" href="https://www.linkedin.com/in/chee-how-chua-5ba74067/" target="_blank" rel="noopener">OPEN PROFILE →</a>
+  </article>
+  <p class="note">This room is reserved for long-form notes and featured posts. Content forthcoming.</p>
+</section>
+
+<section class="panel" data-panel="hearth" hidden aria-hidden="true">
+  <header class="panel-head">
+    <span class="callout">05 / A1</span>
+    <h2>HEARTH</h2>
+    <span class="dim">— CONTACT</span>
+  </header>
+  <p class="cta-line">
+    <a class="cta" href="https://wa.me/6580166178" target="_blank" rel="noopener">
+      GET IN TOUCH&nbsp;&nbsp;→
+    </a>
+    <span class="cta-meta">WhatsApp · +65 8016 6178</span>
+  </p>
+  <dl class="contact">
+    <div><dt>WhatsApp</dt><dd><a href="https://wa.me/6580166178" target="_blank" rel="noopener">+65 8016 6178</a></dd></div>
+    <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/chee-how-chua-5ba74067/" target="_blank" rel="noopener">chee-how-chua</a></dd></div>
+    <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/chchua166178/" target="_blank" rel="noopener">@chchua166178</a></dd></div>
+    <div><dt>Agency</dt><dd>PropNex Singapore</dd></div>
+  </dl>
+</section>
+
+<!-- Persistent title block — bottom right of the sheet, like a real drawing -->
+<aside class="title-block" aria-label="Drawing title block">
+  <div class="tb-row">
+    <span class="tb-key">CLIENT</span>
+    <span class="tb-val">CHEE HOW</span>
+  </div>
+  <div class="tb-row">
+    <span class="tb-key">DISCIPLINE</span>
+    <span class="tb-val">RESIDENTIAL · SG</span>
+  </div>
+  <div class="tb-row">
+    <span class="tb-key">SCALE</span>
+    <span class="tb-val">1 : 100</span>
+  </div>
+  <div class="tb-row">
+    <span class="tb-key">SHEET</span>
+    <span class="tb-val"><em id="tb-sheet">A1</em> / 05</span>
+  </div>
+  <div class="tb-row">
+    <span class="tb-key">REV</span>
+    <span class="tb-val">2026.06</span>
+  </div>
+</aside>
+
+<script src="./plan.js" type="module"></script>
+</body>
+</html>
