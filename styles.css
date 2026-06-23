@@ -333,27 +333,33 @@ body {
   right: var(--pad-edge);
   transform: translateY(-50%);
   display: grid;
+  justify-items: center;
   gap: 14px;
-  padding: 26px 28px;
-  background: var(--sea);
-  color: var(--bone);
+  padding: 22px 26px 20px;
+  background: white;
+  color: var(--ink);
   border-radius: var(--rad-lg);
   min-width: 240px;
-  box-shadow: 0 24px 60px -20px rgba(27, 90, 143, 0.45);
+  box-shadow: 0 24px 60px -20px rgba(26, 26, 26, 0.18);
 }
-.pin-row { display: grid; gap: 4px; }
-.pin-key {
+.hero-pin .pin-key {
   font-family: var(--mono);
   font-size: 10px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(250, 246, 236, 0.65);
+  color: rgba(26, 26, 26, 0.6);
 }
-.pin-val {
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: 22px;
-  font-variation-settings: "SOFT" 30;
+.pin-propnex {
+  width: 140px;
+  height: auto;
+  display: block;
+}
+.pin-foot {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 26, 0.55);
 }
 
 /* ---------- PHOTO STRIP (between hero and about) ---------- */
@@ -876,13 +882,13 @@ body {
 
 .ls-specs {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 0.55fr 0.55fr 1.1fr 1.3fr;
   gap: 12px;
   padding: 16px 0;
   border-top: 1px solid rgba(26, 26, 26, 0.18);
   border-bottom: 1px solid rgba(26, 26, 26, 0.18);
 }
-.ls-specs li { display: grid; gap: 4px; min-width: 0; }
+.ls-specs li { display: grid; gap: 4px; min-width: 0; align-content: start; }
 .ls-specs .k {
   font-family: var(--sans);
   font-weight: 600;
@@ -896,8 +902,17 @@ body {
   font-weight: 700;
   font-size: 15px;
   color: var(--ink);
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+.ls-specs .v .sub {
+  display: block;
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--ink-2);
+  opacity: 0.75;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
 }
 
 .ls-tagline {
@@ -1163,13 +1178,54 @@ body {
   gap: 6px;
   padding: 28px 28px 24px;
   border-radius: var(--rad-lg);
-  background: var(--bone);
-  color: var(--ink);
-  transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
+  color: white;
+  transition: background 200ms var(--ease), color 200ms var(--ease), transform 200ms var(--ease), box-shadow 200ms var(--ease);
   align-content: start;
   min-height: 240px;
+  --tile-bg: var(--ink);
+  --tile-fg: white;
+  --tile-btn-bg: white;
+  --tile-btn-fg: var(--ink);
+  background: var(--tile-bg);
+  color: var(--tile-fg);
 }
-.contact-card:hover { transform: var(--lift); box-shadow: var(--hover-shadow); }
+.contact-card:hover {
+  background: var(--tile-fg-hover, white);
+  color: var(--tile-bg);
+  transform: var(--lift);
+  box-shadow: var(--hover-shadow);
+}
+
+/* Per-tile brand palette (background colour) */
+.contact-card.card-wa { --tile-bg: var(--wa-green); }
+.contact-card.card-li { --tile-bg: var(--li-blue); }
+.contact-card.card-ig { --tile-bg: #C13584; /* solid Instagram pink-purple */ }
+
+/* Tile-logo badge — sits on the brand background */
+.contact-card .tile-logo {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  padding: 6px;
+}
+.contact-card:hover .tile-logo {
+  background: var(--tile-bg);
+}
+.contact-card .tile-logo .ico { color: white; }
+.contact-card:hover .tile-logo .ico { color: white; }
+
+/* Override the earlier corner-positioned tile-logo styles in this scope */
+.contact-card .tile-logo {
+  position: static;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.contact-card .card-key { opacity: 0.85; color: inherit; }
+.contact-card .card-val-name { color: inherit; }
 .card-key {
   font-family: var(--mono);
   font-size: 11px;
@@ -1185,7 +1241,11 @@ body {
   line-height: 1.15;
 }
 
-/* Identical button treatment across all three tiles; brand colour swaps */
+/* Identical button treatment across all three tiles.
+   Default: WHITE pill with brand-coloured text (contrasts against the
+   brand-coloured tile background).
+   Tile hover: the tile background flips to white, and the button
+   flips to the brand colour with white text. */
 .tile-btn {
   display: inline-flex;
   align-items: center;
@@ -1193,27 +1253,25 @@ body {
   gap: 8px;
   padding: 12px 18px;
   border-radius: 999px;
+  background: white;
   font-family: var(--sans);
   font-weight: 700;
   font-size: 14px;
-  border: 1.5px solid;
-  transition: background 160ms var(--ease), color 160ms var(--ease), border-color 160ms var(--ease), transform 160ms var(--ease);
+  border: 1.5px solid white;
+  transition: background 200ms var(--ease), color 200ms var(--ease), border-color 200ms var(--ease), transform 160ms var(--ease);
 }
 .tile-btn .ico { width: 16px; height: 16px; }
-.tile-btn:hover { transform: translateY(-1px); }
 
-/* Brand colour mapping — solid by default, inverted on hover */
-.tile-btn-wa   { background: var(--wa-green); color: white; border-color: var(--wa-green); }
-.tile-btn-wa:hover { background: white; color: var(--wa-green); border-color: var(--wa-green); }
+.contact-card .tile-btn-wa   { color: var(--wa-green); }
+.contact-card .tile-btn-call { color: var(--ink); }
+.contact-card .tile-btn-li   { color: var(--li-blue); }
+.contact-card .tile-btn-ig   { color: #C13584; }
 
-.tile-btn-call { background: var(--ink); color: white; border-color: var(--ink); }
-.tile-btn-call:hover { background: white; color: var(--ink); border-color: var(--ink); }
-
-.tile-btn-li   { background: var(--li-blue); color: white; border-color: var(--li-blue); }
-.tile-btn-li:hover { background: white; color: var(--li-blue); border-color: var(--li-blue); }
-
-.tile-btn-ig   { background: var(--ig-pink); color: white; border-color: var(--ig-pink); }
-.tile-btn-ig:hover { background: white; color: var(--ig-pink); border-color: var(--ig-pink); }
+/* Tile hover flips both the tile bg and the button colours */
+.contact-card.card-wa:hover .tile-btn-wa   { background: var(--wa-green); color: white; border-color: var(--wa-green); }
+.contact-card.card-wa:hover .tile-btn-call { background: var(--ink);      color: white; border-color: var(--ink); }
+.contact-card.card-li:hover .tile-btn-li   { background: var(--li-blue);  color: white; border-color: var(--li-blue); }
+.contact-card.card-ig:hover .tile-btn-ig   { background: #C13584;         color: white; border-color: #C13584; }
 
 .card-actions {
   display: flex;

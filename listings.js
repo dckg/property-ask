@@ -23,11 +23,20 @@ function fmtListed(iso) {
 }
 
 function cardHTML(it) {
-  const sqftLine = it.floor_sqft
-    ? `${it.sqft.toLocaleString()} ${esc(it.sqft_label || 'sqft')} · ${it.floor_sqft.toLocaleString()} floor`
-    : `${it.sqft.toLocaleString()} ${esc(it.sqft_label || 'sqft')}`;
+  // Size column stays short — "3,620 sqft" or "958 sqft" with a tiny
+  // qualifier (e.g. "land") below it when needed.
+  const sqftMain = `${it.sqft.toLocaleString()} sqft`;
+  const sqftQual = (it.sqft_label && it.sqft_label !== 'sqft')
+    ? esc(it.sqft_label.replace(/sqft\s*/i, '').trim())
+    : '';
+  const sqftCell = sqftQual
+    ? `${esc(sqftMain)}<span class="sub">${sqftQual}</span>`
+    : esc(sqftMain);
+
   const psfLine = it.psf ? `<span class="ls-psf">${esc(it.psf)}</span>` : '';
-  const metaLine = [it.tenure, it.top].filter(Boolean).map(esc).join(' · ');
+  // Floor-area moves to the meta line so the spec grid stays clean.
+  const floorBuilt = it.floor_sqft ? `${it.floor_sqft.toLocaleString()} sqft built-up` : null;
+  const metaLine = [it.tenure, it.top, floorBuilt].filter(Boolean).map(esc).join(' · ');
 
   const photoSrc  = esc(it.photo || it.photo_fallback || '');
   const photoFall = esc(it.photo_fallback || '');
@@ -72,8 +81,8 @@ function cardHTML(it) {
           <ul class="ls-specs">
             <li><span class="k">Bed</span><span class="v">${it.beds}</span></li>
             <li><span class="k">Bath</span><span class="v">${it.baths}</span></li>
-            <li><span class="k">Size</span><span class="v">${sqftLine}</span></li>
-            <li><span class="k">Type</span><span class="v">${esc(it.type)}</span></li>
+            <li class="li-wide"><span class="k">Size</span><span class="v">${sqftCell}</span></li>
+            <li class="li-wide"><span class="k">Type</span><span class="v">${esc(it.type)}</span></li>
           </ul>
           <p class="ls-back-price">
             <span class="ls-price">${esc(it.price)}</span>
