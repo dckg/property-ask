@@ -2,8 +2,8 @@ name: Refresh market news
 
 on:
   schedule:
-    # Daily at 00:00 UTC (08:00 SGT)
-    - cron: '0 0 * * *'
+    # Daily at 22:00 UTC (06:00 SGT — Singapore is UTC+8)
+    - cron: '0 22 * * *'
   workflow_dispatch:
 
 permissions:
